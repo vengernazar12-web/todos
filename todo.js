@@ -1,3 +1,4 @@
+const todoWrap = document.querySelector('.todo-wrap');
 function createTodoElement(txt, date, isCompleted = false) {
   if(!txt) return;
   const div = document.createElement('div');
@@ -86,7 +87,7 @@ btnSortTodos.addEventListener('click', () => {
   renderTodos();
 })
 
-document.addEventListener('click', e => {
+todoWrap.addEventListener('click', e => {
   if(e.target.closest('[data-add-todo]')) {
     const val = todoInput.value.trim();
     if(!val) return;
@@ -171,30 +172,4 @@ document.addEventListener('click', e => {
     renderTodos();
   }
 })
-document.addEventListener('keydown', e => {
-  if(e.key === 'Enter') todoAddBtn.click();
-})
 renderTodos();
-
-/* Theme switcher */
-const todoSwitchTheme = document.querySelector('[data-todo-theme-switcher]');
-todoSwitchTheme.addEventListener('click', () => setTodoTheme())
-function setTodoTheme() {
-  const theme = localStorage.getItem('todo-theme');
-  if(theme === 'dark') {
-    localStorage.setItem('todo-theme', 'light');
-    document.documentElement.classList.remove('dark-theme');
-    todoSwitchTheme.textContent = '☀️';
-  }
-  else {
-    localStorage.setItem('todo-theme', 'dark');
-    document.documentElement.classList.add('dark-theme');
-    todoSwitchTheme.textContent = '🌑';
-  }
-}
-
-if(localStorage.getItem('todo-theme') === 'dark') {
-  document.documentElement.classList.add('dark-theme');
-  todoSwitchTheme.textContent = '🌑';
-}
-else todoSwitchTheme.textContent = '☀️';

@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  user-select: none;
+}
+::-webkit-scrollbar { width: 0; }
+
+button { cursor: pointer; }
+
+input:focus { border: 2px solid rgb(104, 104, 182); }
+
+:root {
+  --body-bg: linear-gradient(180deg, rgb(157, 233, 157), rgb(89, 219, 89)) no-repeat fixed;
+  --text-color: black;
+  --block-bg: linear-gradient(180deg, rgb(254, 254, 81), rgb(251, 251, 153))
+}
+html.dark-theme {
+  --body-bg: linear-gradient( 180deg, rgb(63, 108, 63), rgb(30, 61, 30)) no-repeat fixed;
+
+  --text-color: rgb(225, 240, 225);
+
+  --block-bg: linear-gradient( 180deg, rgb(170, 170, 60), rgb(120, 120, 40)
+  );
+}
+
+html .show { display: block; }
+
+[data-theme-switcher] {
+  background: linear-gradient(150deg, rgb(126, 1, 1), rgb(255, 84, 84));
+  font-size: 2.5rem;
+  box-shadow: 0 0 5px red;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.--opened-btn, [data-theme-switcher] { width: 25vw; height: 10vh; border-radius: 15px; border: 1px solid black; }
+.--opened-btn {
+  background: linear-gradient(150deg, rgb(1, 1, 67), rgb(4, 4, 160));
+  color: white;
+  box-shadow: 0 0 5px blue;
+}
+.todo-wrap, .notes-wrap, .calc-wrap { background: var(--body-bg); }
+
+.todo-wrap, .notes-wrap, .calc-wrap {
+  position: fixed;
+  inset: 0;
+  display: none;
+}

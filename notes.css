@@ -1,0 +1,25 @@
+.notes-wrap { overflow-y: auto; }
+[data-notes-text-block] {
+  background: var(--block-bg);
+  color: var(--text-color);
+  padding: 7px;
+  resize: none;
+  width: 90vw;
+  margin: 75px auto 0 auto;
+  min-height: 15vh;
+  height: max-content;
+  max-height: 250vh;
+  overflow-y: auto;
+  border-radius: 7px;
+  font-size: 1.2rem;
+}
+
+[data-close-notes-wrap], [data-save-text] {
+  width: 25vw;
+  height: 35px;
+  border-radius: 8px;
+  position: absolute;
+  top: 10px;
+}
+[data-close-notes-wrap] { right: 5vw; }
+[data-save-text] { left: 5vw; }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <link rel="stylesheet" href="todo.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="notes.css">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="todo.js" defer></script>
+  <script src="main.js" defer></script>
+  <script src="notes.js" defer></script>
+  <script src="calculator.js" defer></script>
+  <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+</head>
+<body>
+
+<button class="open-todo-wrap --opened-btn">TODO</button>
+<button class="open-notes-wrap --opened-btn">NOTES</button>
+<button class="open-calc-wrap --opened-btn">CALCULATOR</button>
+<button data-theme-switcher></button>
+
+<div class="todo-wrap">
+  <input type="text" data-todo-input placeholder="Ваш todo..." title="Добавити todo...">
+  <input type="text" data-todo-search placeholder="Пошук todo..." title="Знайти todo...">
+  <button data-sort-todos>SORT</button>
+  <button data-add-todo title="Добавити todo...">ADD</button>
+  <div data-todos-container><h1></h1></div>
+  <p data-todos-number>Всього todo: Ще не ініціалізовано</p>
+
+  <button data-close-todo-wrap>❌</button>
+</div>
+
+<div class="notes-wrap">
+  <button data-save-text>SAVE</button>
+  <button data-close-notes-wrap>❌</button>
+
+  <div contenteditable="true" data-notes-text-block></div>
+</div>
+
+<div class="calc-wrap">
+  <button class="close-calc-wrap">❌</button>
+  <div class="calc-container">
+    <div class="header-panel"><p></p></div>
+    <div class="navigation-panel">
+      <div class="numbers-panel">
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value=".">.</button>
+        <button data-value="0">0</button>
+        <button data-value="=">=</button>
+      </div>
+      <div class="operators-panel">
+        <button data-value="/">÷</button>
+        <button data-value="*">×</button>
+        <button data-value="-">-</button>
+        <button data-value="+">+</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
