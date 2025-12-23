@@ -175,3 +175,26 @@ document.addEventListener('keydown', e => {
   if(e.key === 'Enter') todoAddBtn.click();
 })
 renderTodos();
+
+/* Theme switcher */
+const todoSwitchTheme = document.querySelector('[data-todo-theme-switcher]');
+todoSwitchTheme.addEventListener('click', () => setTodoTheme())
+function setTodoTheme() {
+  const theme = localStorage.getItem('todo-theme');
+  if(theme === 'dark') {
+    localStorage.setItem('todo-theme', 'light');
+    document.documentElement.classList.remove('dark-theme');
+    todoSwitchTheme.textContent = '☀️';
+  }
+  else {
+    localStorage.setItem('todo-theme', 'dark');
+    document.documentElement.classList.add('dark-theme');
+    todoSwitchTheme.textContent = '🌑';
+  }
+}
+
+if(localStorage.getItem('todo-theme') === 'dark') {
+  document.documentElement.classList.add('dark-theme');
+  todoSwitchTheme.textContent = '🌑';
+}
+else todoSwitchTheme.textContent = '☀️';
