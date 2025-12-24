@@ -1,5 +1,15 @@
+const allCalcBtnsObj = {};
+document.querySelectorAll('.navigation-panel button')
+.forEach(v => allCalcBtnsObj[v.dataset.value] = v);
+
 const calculatorWrap = document.querySelector('.calc-wrap');
-const calculatorText = document.querySelector('.header-panel p');
+const headerPanel = document.querySelector('.header-panel');
+const calculatorText = headerPanel.querySelector('p');
+
+const delCalcSymbolBtn = document.querySelector('.delete-symbol-btn');
+delCalcSymbolBtn.addEventListener('click', () => {
+  calculatorText.textContent = calculatorText.textContent.slice(0, -1);
+})
 
 const operators = ['+', '-', '/', '*']
 
@@ -24,9 +34,11 @@ calculatorWrap.addEventListener('click', e => {
   else if(/\d/.test(b.dataset?.value)) { calculatorText.textContent += b.dataset?.value; }
 
   else if(operators.includes(b.dataset?.value)) {
-    if(b.dataset.value === '-') {if(/\d/.test(l) || !l) {calculatorText.textContent += '-'; console.log('- 100%')}}
+    if(b.dataset.value === '-') {if(/\d/.test(l) || !l) {calculatorText.textContent += '-'; }}
     else if(/\d/.test(l)) calculatorText.textContent += b.textContent;
   }
 
   else if(b.dataset?.value === '.') { if(/\d/.test(l)) calculatorText.textContent += '.'; }
+
+  headerPanel.scrollLeft = headerPanel.scrollWidth;
 })

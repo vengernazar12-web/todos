@@ -1,7 +1,14 @@
 document.addEventListener('keydown', e => {
   if(e.key === 'Enter') {
     if(todoWrap.classList.contains('show')) todoAddBtn.click();
-  };
+    else if(calculatorWrap.classList.contains('show')) allCalcBtnsObj['='].click();
+  }
+  else if(calculatorWrap.classList.contains('show')) {
+    let button = e.key;
+    if(button === 'Backspace') return delCalcSymbolBtn.click();
+    if(button === '=') button = '+';
+    if(allCalcBtnsObj[button]) allCalcBtnsObj[button].click();
+  }
 })
 
 /* Theme switcher */
