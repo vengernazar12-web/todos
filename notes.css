@@ -8,21 +8,24 @@
   margin: 100px auto 0 auto;
   min-height: 15vh;
   height: max-content;
-  max-height: 300vh;
+  max-height: calc(99vh - 100px);
   overflow-y: auto;
   border-radius: 7px;
   font-size: 1.2rem;
 }
+[data-notes-text-block] span { font-size: 1.5rem; font-weight: 900; }
 
-[data-close-notes-wrap], [data-save-text] {
-  width: 25vw;
+[data-close-notes-wrap], [data-save-text], .reload-all-notes-tags {
+  width: clamp(150px, 25vw, 25vw);
   height: 35px;
   border-radius: 8px;
   position: absolute;
   top: 10px;
+  font-size: 1.2rem;
 }
 [data-close-notes-wrap] { right: 5vw; }
 [data-save-text] { left: 5vw; }
+.reload-all-notes-tags { left: 37.5vw; }
 
 .search-text-in-notes {
   width: 90vw;
@@ -38,5 +41,4 @@ mark {
   background-color: yellow;
   color: blue;
   border-radius: 2px;
-  padding: 0 1px;
 }

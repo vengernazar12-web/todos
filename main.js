@@ -56,6 +56,7 @@ document.querySelector('.open-todo-wrap')
 document.querySelector('.open-notes-wrap')
 .addEventListener('click', () => {
   textBlock.innerHTML = (localStorage.getItem('notes-text') || '');
+  reloadNotes();
   notesWrap.classList.add('show');
 })
 
@@ -72,7 +73,8 @@ document.querySelector('[data-close-todo-wrap]')
 document.querySelector('[data-close-notes-wrap]')
 .addEventListener('click', () => {
   notesWrap.classList.remove('show');
-  localStorage.setItem('notes-text', textBlock.innerHTML)
+  localStorage.setItem('notes-text', textBlock.innerHTML);
+  reloadNotes();
 });
 
 document.querySelector('.close-calc-wrap')
