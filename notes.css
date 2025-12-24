@@ -5,10 +5,10 @@
   padding: 7px;
   resize: none;
   width: 90vw;
-  margin: 75px auto 0 auto;
+  margin: 100px auto 0 auto;
   min-height: 15vh;
   height: max-content;
-  max-height: 250vh;
+  max-height: 300vh;
   overflow-y: auto;
   border-radius: 7px;
   font-size: 1.2rem;
@@ -23,3 +23,20 @@
 }
 [data-close-notes-wrap] { right: 5vw; }
 [data-save-text] { left: 5vw; }
+
+.search-text-in-notes {
+  width: 90vw;
+  height: 25px;
+  position: absolute;
+  top: 60px;
+  left: 5vw;
+  border-radius: 7px;
+  padding-left: 5px;
+}
+
+mark {
+  background-color: yellow;
+  color: blue;
+  border-radius: 2px;
+  padding: 0 1px;
+}

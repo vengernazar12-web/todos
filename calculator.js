@@ -1,6 +1,6 @@
 const allCalcBtnsObj = {};
-document.querySelectorAll('.navigation-panel button')
-.forEach(v => allCalcBtnsObj[v.dataset.value] = v);
+const allNavBtns = document.querySelectorAll('.navigation-panel button');
+allNavBtns.forEach(v => allCalcBtnsObj[v.dataset.value] = v);
 
 const calculatorWrap = document.querySelector('.calc-wrap');
 const headerPanel = document.querySelector('.header-panel');
@@ -18,17 +18,22 @@ isAnswer = false;
 calculatorWrap.addEventListener('click', e => {
   const b = e.target;
   const l = calculatorText.textContent[calculatorText.textContent.length - 1];
-  if(b.tagName === 'BUTTON') if(isAnswer) {calculatorText.textContent = ''; isAnswer = false};
-  if(b.dataset?.value === '=') {
+  if(b.tagName === 'BUTTON' && isAnswer && (/[-\+\/\*\d]/.test(b.dataset.value) || b === delCalcSymbolBtn)) {
+    calculatorText.textContent = '';
+    isAnswer = false;
+  };
 
+  if(b.dataset?.value === '=') {
     if(operators.includes(l) || l === '.') return;
-    calculatorText.textContent = eval(
-      calculatorText
-      .textContent
-      .replaceAll('×', '*')
-      .replaceAll('÷', '/')
-    )
-    isAnswer = true;
+    try {
+      const exp = calculatorText
+                  .textContent
+                  .replaceAll('×', '*')
+                  .replaceAll('÷', '/')
+      calculatorText.textContent = Function(`return ${exp}`)()
+      isAnswer = true;
+    }
+    catch { calculatorText.textContent = 'Error!'; isAnswer = true; }
   }
 
   else if(/\d/.test(b.dataset?.value)) { calculatorText.textContent += b.dataset?.value; }

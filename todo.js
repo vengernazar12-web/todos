@@ -50,7 +50,10 @@ function renderFilteredTodos(txt) {
   todosContainer.textContent = '';
   allTodosArr.forEach(v => {
     const infoObj = allTodosObj[v];
-    if(v.toLowerCase().includes(txt)) { createTodoElement(v, infoObj.date, infoObj.isCompleted) }
+
+    if(v.toLowerCase().includes(txt) || infoObj.date.includes(txt)) {
+      createTodoElement(v, infoObj.date, infoObj.isCompleted)
+    }
   })
   if(!todosContainer.children.length) todosContainer.innerHTML = `<h1>Нічого не знайдено...</h1>`;
 }
@@ -172,4 +175,3 @@ todoWrap.addEventListener('click', e => {
     renderTodos();
   }
 })
-renderTodos();

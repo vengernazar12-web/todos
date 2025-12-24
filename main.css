@@ -41,7 +41,12 @@ body {
   flex-wrap: wrap;
 }
 
-.--opened-btn, [data-theme-switcher] { width: 25vw; height: 10vh; border-radius: 15px; border: 1px solid black; }
+.--opened-btn, [data-theme-switcher] {
+  width: clamp(170px, 24vw, 25vw);
+  height: clamp(55px, 60px, 65px);
+  border-radius: 15px;
+  border: 1px solid black;
+}
 .--opened-btn {
   background: linear-gradient(150deg, rgb(1, 1, 67), rgb(4, 4, 160));
   color: white;

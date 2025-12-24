@@ -1,13 +1,28 @@
 document.addEventListener('keydown', e => {
   if(e.key === 'Enter') {
     if(todoWrap.classList.contains('show')) todoAddBtn.click();
-    else if(calculatorWrap.classList.contains('show')) allCalcBtnsObj['='].click();
+    else if(calculatorWrap.classList.contains('show')) {
+      allCalcBtnsObj['='].click();
+      allCalcBtnsObj['='].classList.add('btn-active');
+    };
   }
   else if(calculatorWrap.classList.contains('show')) {
     let button = e.key;
-    if(button === 'Backspace') return delCalcSymbolBtn.click();
+    if(button === 'Backspace') {
+      delCalcSymbolBtn.click();
+      return delCalcSymbolBtn.classList.add('btn-active');
+    };
     if(button === '=') button = '+';
-    if(allCalcBtnsObj[button]) allCalcBtnsObj[button].click();
+    if(allCalcBtnsObj[button]) {
+      allCalcBtnsObj[button].click();
+      allCalcBtnsObj[button].classList.add('btn-active');
+    };
+  }
+})
+document.addEventListener('keyup', () => {
+  if(calculatorWrap.classList.contains('show')) {
+    allNavBtns.forEach(v => v.classList.remove('btn-active'));
+    delCalcSymbolBtn.classList.remove('btn-active');
   }
 })
 
@@ -36,16 +51,19 @@ else todoSwitchTheme.textContent = '☀️';
 
 /* All opened btns */
 document.querySelector('.open-todo-wrap')
-.addEventListener('click', () => todoWrap.classList.add('show'));
+.addEventListener('click', () => { renderTodos(); todoWrap.classList.add('show')});
 
 document.querySelector('.open-notes-wrap')
 .addEventListener('click', () => {
-  textBlock.textContent = (localStorage.getItem('notes-text') || '');
+  textBlock.innerHTML = (localStorage.getItem('notes-text') || '');
   notesWrap.classList.add('show');
 })
 
 document.querySelector('.open-calc-wrap')
-.addEventListener('click', () => {calculatorWrap.classList.add('show'); calculatorText.textContent = '';});
+.addEventListener('click', () => {
+  calculatorWrap.classList.add('show');
+  allCalcBtnsObj['='].click();
+});
 
 /* All closed btns */
 document.querySelector('[data-close-todo-wrap]')
@@ -54,7 +72,7 @@ document.querySelector('[data-close-todo-wrap]')
 document.querySelector('[data-close-notes-wrap]')
 .addEventListener('click', () => {
   notesWrap.classList.remove('show');
-  textBlock.textContent = (localStorage.getItem('notes-text') || '');
+  localStorage.setItem('notes-text', textBlock.innerHTML)
 });
 
 document.querySelector('.close-calc-wrap')

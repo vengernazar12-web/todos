@@ -15,6 +15,13 @@
   position: relative;
   border-radius: 10px;
 }
+
+.calc-container button { transition: transform .1s, background-color .1s; }
+
+.calc-container button:active, button.btn-active {
+  background-color: rgb(78, 73, 73);
+  transform: scale(0.97);
+}
 .header-panel {
   position: absolute;
   top: 10px;
@@ -47,6 +54,7 @@
   width: calc(100% - 2px);
   gap: 10px;
 }
+
 .numbers-panel {
   position: absolute;
   top: 0;
