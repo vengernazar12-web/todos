@@ -155,17 +155,6 @@ body {
   border: 1px solid black;
 }
 
-/* Animation */
-@keyframes del-todo-anim {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
-[data-todo-block].del-todo-anim {
-  animation: del-todo-anim 1.5s;
-  background: rgb(221, 115, 115);
-  color: red;
-}
-
 @media (hover: none) {
   button, input { transition: none; cursor: auto; }
   button:hover, input[type='checkbox']:hover  { transform: scale(1); }

@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="notes.css">
   <link rel="stylesheet" href="calculator.css">
+  <link rel="stylesheet" href="saveUrls.css">
   <script src="todo.js" defer></script>
   <script src="main.js" defer></script>
   <script src="notes.js" defer></script>
   <script src="calculator.js" defer></script>
+  <script src="saveUrls.js" defer></script>
   <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
@@ -18,7 +20,15 @@
 <button class="open-todo-wrap --opened-btn">TODO</button>
 <button class="open-notes-wrap --opened-btn">NOTES</button>
 <button class="open-calc-wrap --opened-btn">CALCULATOR</button>
+<button class="open-save-urls-wrap --opened-btn">SAVE URLS</button>
 <button data-theme-switcher></button>
+
+<div class="all-stats-wrap">
+  <p class="todos-number-stats"></p>
+  <p class="notes-symbols-number"></p>
+  <p class="saved-urls-number"></p>
+</div>
+<button class="show-all-dashboard-stats">📊</button>
 
 <div class="todo-wrap">
   <input type="text" data-todo-input placeholder="Ваш todo..." title="Добавити todo...">
@@ -38,6 +48,9 @@
   <input type="text" class="search-text-in-notes" placeholder="Search words...">
 
   <div contenteditable="true" data-notes-text-block></div>
+
+  <button class="btn-up" title="UP">↑</button>
+  <button class="btn-down" title="DOWN">↓</button>
 </div>
 
 <div class="calc-wrap">
@@ -68,6 +81,17 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="save-urls-wrap">
+  <button class="close-save-urls-wrap">❌</button>
+
+  <input type="text" class="save-url-name-input" placeholder="Name your url...">
+  <input type="text" class="save-opened-url-input" placeholder="Open url...">
+  <button class="save-url-btn">SAVE</button>
+  <input type="text" class="search-url" placeholder="Search your urls...">
+
+  <div class="all-urls-container"></div>
 </div>
 
 </body>

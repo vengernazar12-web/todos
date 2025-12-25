@@ -120,7 +120,7 @@ todoWrap.addEventListener('click', e => {
 
     e.target.parentElement.style.transition = 'none';
     e.target.parentElement.lastElementChild.checked = false;
-    e.target.parentElement.classList.add('del-todo-anim')
+    e.target.parentElement.classList.add('del-anim')
 
     setTimeout(() => {
       renderTodos();

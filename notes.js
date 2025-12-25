@@ -6,13 +6,10 @@ const btnSaveNotes = document.querySelector('[data-save-text]');
 btnSaveNotes.addEventListener('click', () => localStorage.setItem('notes-text', textBlock.innerHTML))
 
 const btnReloadNotesTags = document.querySelector('.reload-all-notes-tags');
-btnReloadNotesTags.addEventListener('click', reloadNotes)
+btnReloadNotesTags.addEventListener('click', reloadNotes);
+
 function reloadNotes() {
-  textBlock.innerHTML = textBlock.innerHTML
-  .replace(/#([^#]+)#/g, (all, match) => {
-    if(match.includes('<br>') || match.includes('<div>')) return all;
-    return `<span>${match}</span>`
-  }).replace(/<\/?mark>/g, '');
+  textBlock.innerHTML = textBlock.innerHTML.replace(/<\/?mark>/g, '');
   searchWordsInNotes.value = '';
   localStorage.setItem('notes-text', textBlock.innerHTML);
 }
@@ -26,5 +23,10 @@ searchWordsInNotes.addEventListener('input', e => {
   if(!search.length) return textBlock.innerHTML = localStorage.getItem('notes-text');
 
   textBlock.innerHTML = localStorage.getItem('notes-text')
-  .replace(new RegExp(`(?<!<[^>]{0,5})${search}(?![^<]{0,5}>)`, 'gi'), '<mark>$&</mark>');
+  .replace(new RegExp(`(?<!<[^>]{0,10})${search}(?![^<]{0,10}>)`, 'gi'), '<mark>$&</mark>');
 });
+
+document.querySelector('.btn-up')
+.addEventListener('click', () => textBlock.scrollTop = 0);
+document.querySelector('.btn-down')
+.addEventListener('click', () => textBlock.scrollTop = textBlock.scrollHeight);

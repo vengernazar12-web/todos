@@ -12,8 +12,8 @@
   overflow-y: auto;
   border-radius: 7px;
   font-size: 1.2rem;
+  scroll-behavior: smooth;
 }
-[data-notes-text-block] span { font-size: 1.5rem; font-weight: 900; }
 
 [data-close-notes-wrap], [data-save-text], .reload-all-notes-tags {
   width: clamp(150px, 25vw, 25vw);
@@ -42,3 +42,13 @@ mark {
   color: blue;
   border-radius: 2px;
 }
+
+.btn-up, .btn-down {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 2px;
+  border-radius: 5px;
+}
+.btn-up { top: 100px; }
+.btn-down { top: 130px; }

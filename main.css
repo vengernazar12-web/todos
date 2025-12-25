@@ -39,6 +39,7 @@ body {
   justify-content: center;
   gap: 50px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .--opened-btn, [data-theme-switcher] {
@@ -52,10 +53,45 @@ body {
   color: white;
   box-shadow: 0 0 5px blue;
 }
-.todo-wrap, .notes-wrap, .calc-wrap { background: var(--body-bg); }
 
-.todo-wrap, .notes-wrap, .calc-wrap {
+.todo-wrap, .notes-wrap, .calc-wrap, .save-urls-wrap {
   position: fixed;
   inset: 0;
   display: none;
+  background: var(--body-bg);
+}
+
+.show-all-dashboard-stats {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 2.2rem;
+  border-radius: 7px;
+  background-color: transparent;
+}
+
+/* All stats */
+.all-stats-wrap {
+  position: fixed;
+  top: 0;
+  righT: 0;
+  width: 40vw;
+  height: 40vh;
+  border-radius: 0 0 0 15px;
+  display: none;
+  background: var(--block-bg);
+  padding: 5px;
+}
+
+/* Del animation */
+@keyframes del-anim {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+html .del-anim {
+  animation: del-anim 1.5s;
+  background: rgb(221, 115, 115);
+  color: red;
 }
