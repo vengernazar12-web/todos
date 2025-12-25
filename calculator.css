@@ -8,10 +8,10 @@
 }
 
 .calc-container {
-  width: 60vw;
-  height: 80vh;
+  width: 60%;
+  min-height: 80%;
   background-color: rgb(42, 41, 41);
-  margin: 7vh auto 0 auto;
+  margin: 7% auto 0 auto;
   position: relative;
   border-radius: 10px;
 }
@@ -44,7 +44,6 @@
   width: 12.5%;
   border-radius: 10px;
   color: rgb(120, 0, 0);
-  font-size: 1.75rem;
 }
 
 .navigation-panel {
@@ -57,7 +56,6 @@
 
 .numbers-panel {
   position: absolute;
-  top: 0;
   left: 0;
   width: 60%;
   height: calc(80vh - 75px);
@@ -65,6 +63,7 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  background-color: rgb(42, 41, 41);
 }
 .numbers-panel button {
   width: 27%;
@@ -75,13 +74,13 @@
 }
 .operators-panel {
   position: absolute;
-  top: 0;
   right: 0;
-  width: 35%;
+  width: 40%;
   height: calc(80vh - 75px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: rgb(42, 41, 41);
 }
 .operators-panel button {
   width: 75%;

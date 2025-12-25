@@ -4,11 +4,11 @@
   color: var(--text-color);
   padding: 7px;
   resize: none;
-  width: 90vw;
+  width: 90%;
   margin: 100px auto 0 auto;
-  min-height: 15vh;
+  min-height: 15%;
   height: max-content;
-  max-height: calc(99vh - 100px);
+  max-height: calc(99% - 100px);
   overflow-y: auto;
   border-radius: 7px;
   font-size: 1.2rem;
@@ -16,23 +16,23 @@
 }
 
 [data-close-notes-wrap], [data-save-text], .reload-all-notes-tags {
-  width: clamp(150px, 25vw, 25vw);
+  width: clamp(50px, 25%, 25%);
   height: 35px;
   border-radius: 8px;
   position: absolute;
   top: 10px;
   font-size: 1.2rem;
 }
-[data-close-notes-wrap] { right: 5vw; }
-[data-save-text] { left: 5vw; }
-.reload-all-notes-tags { left: 37.5vw; }
+[data-close-notes-wrap] { right: 5%; }
+[data-save-text] { left: 5%; }
+.reload-all-notes-tags { left: 37.5%; }
 
 .search-text-in-notes {
-  width: 90vw;
+  width: 90%;
   height: 25px;
   position: absolute;
   top: 60px;
-  left: 5vw;
+  left: 5%;
   border-radius: 7px;
   padding-left: 5px;
 }

@@ -59,6 +59,7 @@ body {
   inset: 0;
   display: none;
   background: var(--body-bg);
+  overflow-y: auto;
 }
 
 .show-all-dashboard-stats {
@@ -70,6 +71,12 @@ body {
   font-size: 2.2rem;
   border-radius: 7px;
   background-color: transparent;
+}
+
+html .minimized {
+  width: 40vw;
+  height: 40vh;
+  border: 2px solid black;
 }
 
 /* All stats */

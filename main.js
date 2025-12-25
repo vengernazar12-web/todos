@@ -35,15 +35,17 @@ const savedUrlsNumber = allStatsWrap.querySelector('.saved-urls-number');
 document.querySelector('.show-all-dashboard-stats')
 .addEventListener('click', () => {
   renderTodos();
-  todosNumberStats.textContent = `You have "${todosContainer.children.length}" todos`;
+  todosNumberStats.textContent = `Todos ${todosContainer.children.length}`;
 
-  notesSymbolsNumber.textContent = `You have "${(localStorage.getItem('notes-text') || '').replace(/<[^<>]+>/g, '').length}" notes symbols`;
+  notesSymbolsNumber.textContent = `Notes SYMBOLs ${(localStorage.getItem('notes-text') || '').replace(/<[^<>]+>/g, '').length}`;
 
   renderAllUrls();
-  savedUrlsNumber.textContent = `You have "${allUrlsContainer.children.length}" saved urls`;
+  savedUrlsNumber.textContent = `Saved URls ${allUrlsContainer.children.length}`;
 
   allStatsWrap.classList.toggle('show');
 })
+
+document.querySelectorAll('.min-wrap').forEach(b => { b.addEventListener('click', () => b.parentElement.classList.toggle('minimized')) })
 
 /* Theme switcher */
 const todoSwitchTheme = document.querySelector('[data-theme-switcher]');

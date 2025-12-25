@@ -5,7 +5,7 @@ body, [data-todo-block] {
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100%;
   height: auto;
   background: var(--body-bg);
   color: var(--text-color);
@@ -18,9 +18,9 @@ body {
 [data-todo-input] {
   position: absolute;
   top: 25px;
-  left: 2.5vw;
-  width: 80vw;
-  height: max(4.5vh, 25px);
+  left: 2.5%;
+  width: 80%;
+  height: max(4.5%, 25px);
   border-radius: 10px;
   border: 1px solid black;
   padding-left: 10px;
@@ -30,9 +30,9 @@ body {
 [data-todo-search] {
   position: absolute;
   top: 75px;
-  left: 2.5vw;
-  width: 70vw;
-  height: max(4.5vh, 25px);
+  left: 2.5%;
+  width: 70%;
+  height: max(4.5%, 25px);
   border-radius: 10px;
   border: 1px solid black;
   padding-left: 10px;
@@ -42,29 +42,29 @@ body {
 [data-add-todo] {
   position: absolute;
   top: 25px;
-  right: 2.5vw;
-  font-size: 1rem;
+  right: 2.5%;
   border: 1px solid black;
-  height: max(4.5vh, 25px);
+  height: max(4.5%, 25px);
   border-radius: 10px;
-  width: 12.5vw;
+  width: 12.5%;
+  font-size: 0.8rem;
 }
 [data-sort-todos] {
   position: absolute;
-  right: 12.5vw;
+  right: 12.5%;
   top: 75px;
-  width: 12.5vw;
+  width: 12.5%;
   border: 1px solid black;
-  height: max(4.5vh, 25px);
+  height: max(4.5%, 25px);
   border-radius: 10px;
   font-size: 1rem;
 }
 
 [data-todos-container] {
-  width: 85vw;
+  width: 85%;
   position: absolute;
   top: 150px;
-  left: 7.5vw;
+  left: 7.5%;
   border-radius: 12px;
   display: flex;
   flex-wrap: wrap;
@@ -141,16 +141,16 @@ body {
 [data-todos-number] {
   position: absolute;
   top: 2px;
-  left: 3vw;
+  left: 10%;
   font-size: 0.8rem;
 }
 
 [data-close-todo-wrap] {
-  width: 7.5vw;
-  height: max(4.5vh, 25px);
+  width: 7.5%;
+  height: max(4.5%, 25px);
   position: absolute;
   top: 75px;
-  right: 2.5vw;
+  right: 2.5%;
   border-radius: 10px;
   border: 1px solid black;
 }
