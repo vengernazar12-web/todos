@@ -19,6 +19,7 @@ function createUrlElement(name, opened) {
 }
 
 function renderAllUrls() {
+  if(!allUrlsArr.length) return allUrlsContainer.innerHTML = '<h1>Немає URLs...</h1>'
   allUrlsContainer.textContent = '';
 
   allUrlsArr.forEach(u => createUrlElement(u, allUrlsObj[u]));
@@ -75,7 +76,7 @@ function renderFilteredUrls(text) {
   allUrlsContainer.textContent = '';
   text = text.toLowerCase();
 
-  allUrlsArr.forEach(name => {
-    if(name.toLowerCase().includes(text)) createUrlElement(name, allUrlsObj[name])
-  })
+  allUrlsArr.forEach(name => {if(name.toLowerCase().includes(text)) createUrlElement(name, allUrlsObj[name])});
+
+  if(!allUrlsContainer.children.length) allUrlsContainer.innerHTML = '<h1>Нічого не знайдено...</h1>'
 }
