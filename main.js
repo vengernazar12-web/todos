@@ -136,6 +136,17 @@ allWindowsHeader.forEach(header => {
 })
 document.addEventListener('pointermove', e => {
   if(!isDrag || !dragBlock) return;
-  dragBlock.style.left = `${e.clientX - x}px`;
-  dragBlock.style.top = `${e.clientY - y}px`;
+  let left = e.clientX - x,
+  top = e.clientY - y;
+
+  left = Math.max(0, left);
+  top = Math.max(0, top);
+
+  const bObj = dragBlock.getBoundingClientRect();
+
+  left = Math.min(left, window.innerWidth - bObj.width);
+  top = Math.min(top, window.innerHeight - bObj.height);
+
+  dragBlock.style.left = left + 'px';
+  dragBlock.style.top = top + 'px';
 })
