@@ -124,7 +124,7 @@ x, y;
 document.addEventListener('pointerup', () => {isDrag = false; dragBlock = null;})
 
 document.addEventListener('pointerdown', e => {
-  if(!e.target.parentElement.classList.contains('minimized')) return;
+  if(!e.target.parentElement.classList.contains('minimized') || e.target.tagName !== 'HEADER') return;
   isDrag = true;
   dragBlock = e.target.parentElement;
   const blockObj = dragBlock.getBoundingClientRect();
