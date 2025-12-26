@@ -58,12 +58,15 @@ function renderFilteredTodos(txt) {
   if(!todosContainer.children.length) todosContainer.innerHTML = `<h1>Нічого не знайдено...</h1>`;
 }
 
+const todoNameLengthTxt = document.querySelector('[todo-symbols-length]');
+
 let allTodosObj = JSON.parse(localStorage.getItem('all-todos')) || {};
 let allTodosArr = Object.keys(allTodosObj);
 
 const todosContainer = document.querySelector('[data-todos-container]');
 
 const todoInput = document.querySelector('[data-todo-input]');
+todoInput.addEventListener('input', () => todoNameLengthTxt.textContent = `${todoInput.value.trim().length} / 25`)
 const todoAddBtn = document.querySelector('[data-add-todo]');
 
 const todosNumberText = document.querySelector('[data-todos-number]');

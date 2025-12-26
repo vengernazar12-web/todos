@@ -95,10 +95,10 @@ body {
 .all-stats-wrap {
   position: fixed;
   top: 0;
-  righT: 0;
+  left: 0;
   width: 40vw;
-  height: 40vh;
-  border-radius: 0 0 0 15px;
+  height: max-content;
+  border-radius: 0 0 15px 0;
   display: none;
   background: var(--block-bg);
   padding: 5px;

@@ -53,8 +53,8 @@ document.querySelector('.show-all-dashboard-stats')
 })
 
 document.querySelectorAll('.min-wrap').forEach(b => {b.addEventListener('click', () => {
-  b.parentElement.classList.toggle('minimized');
   b.parentElement.removeAttribute('style');
+  b.parentElement.classList.toggle('minimized');
 })})
 
 /* Theme switcher */
@@ -129,8 +129,9 @@ allWindowsHeader.forEach(header => {
   if(!e.target.parentElement.classList.contains('minimized')) return;
   isDrag = true;
   dragBlock = header.parentElement;
-  x = e.clientX - dragBlock.getBoundingClientRect().left;
-  y = e.clientY - dragBlock.getBoundingClientRect().top;
+  const blockObj = dragBlock.getBoundingClientRect();
+  x = e.clientX - blockObj.left;
+  y = e.clientY - blockObj.top;
   })
 })
 document.addEventListener('pointermove', e => {

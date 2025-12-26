@@ -90,7 +90,7 @@ body {
   text-decoration-color: #4caf50;
 }
 
-[data-todo-h2] { position: absolute; left: 5px; }
+[data-todo-h2] { position: absolute; left: 5px; font-size: 1.2rem; top: 5px; }
 [data-todo-p] {
   position: absolute;
   top: 2px;
@@ -153,6 +153,12 @@ body {
   right: 2.5%;
   border-radius: 10px;
   border: 1px solid black;
+}
+
+[todo-symbols-length] {
+  position: absolute;
+  top: 2px;
+  right: 20%;
 }
 
 @media (hover: none) {
