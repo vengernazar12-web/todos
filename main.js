@@ -144,9 +144,6 @@ document.addEventListener('pointermove', e => {
 
   const bObj = dragBlock.getBoundingClientRect();
 
-  left = Math.min(left, window.innerWidth - bObj.width);
-  top = Math.min(top, window.innerHeight - bObj.height);
-
-  dragBlock.style.left = left + 'px';
-  dragBlock.style.top = top + 'px';
+  dragBlock.style.left = Math.min(left, window.innerWidth - bObj.width) + 'px';
+  dragBlock.style.top = Math.min(top, window.innerHeight - bObj.height) + 'px';
 })
