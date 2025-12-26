@@ -160,8 +160,3 @@ body {
   top: 2px;
   right: 20%;
 }
-
-@media (hover: none) {
-  button, input { transition: none; cursor: auto; }
-  button:hover, input[type='checkbox']:hover  { transform: scale(1); }
-}

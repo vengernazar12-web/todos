@@ -55,6 +55,14 @@ body {
   box-shadow: 0 0 5px blue;
 }
 
+.min-wrap {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
 .todo-wrap, .notes-wrap, .calc-wrap, .save-urls-wrap {
   position: fixed;
   top: 0;
@@ -102,6 +110,12 @@ body {
   display: none;
   background: var(--block-bg);
   padding: 5px;
+}
+
+@media (hover: none) {
+  button, input { transition: none; cursor: auto; }
+  button:hover, input[type='checkbox']:hover  { transform: scale(1); }
+  .min-wrap { display: none; }
 }
 
 /* Del animation */
