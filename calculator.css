@@ -8,7 +8,7 @@
 }
 
 .calc-container {
-  width: 60%;
+  width: 75%;
   min-height: 80%;
   background-color: rgb(42, 41, 41);
   margin: 7% auto 0 auto;
@@ -51,7 +51,6 @@
   top: 75px;
   left: 2px;
   width: calc(100% - 4px);
-  gap: 10px;
 }
 
 .numbers-panel {

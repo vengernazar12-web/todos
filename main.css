@@ -112,7 +112,7 @@ body {
   padding: 5px;
 }
 
-@media (hover: none) {
+@media (hover: none), (max-width: 550px) {
   button, input { transition: none; cursor: auto; }
   button:hover, input[type='checkbox']:hover  { transform: scale(1); }
   .min-wrap { display: none; }
