@@ -90,7 +90,7 @@ body {
   text-decoration-color: #4caf50;
 }
 
-[data-todo-h2] { position: absolute; left: 5px; font-size: 1.2rem; top: 5px; }
+[data-todo-h2] { position: absolute; left: 5px; font-size: 1.2rem; top: 7px; }
 [data-todo-p] {
   position: absolute;
   top: 2px;
