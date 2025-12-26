@@ -8,6 +8,12 @@ document.addEventListener('keydown', e => {
     }
     else if(saveUrlsWrap.classList.contains('show')) saveUrlBtn.click();
   }
+  else if(e.key === 'Escape') {
+    todoWrap.classList.remove('show');
+    notesWrap.classList.remove('show');
+    calculatorWrap.classList.remove('show');
+    saveUrlsWrap.classList.remove('show');
+  }
   else if(calculatorWrap.classList.contains('show')) {
     let button = e.key;
     if(button === 'Backspace') {
@@ -32,6 +38,7 @@ const allStatsWrap = document.querySelector('.all-stats-wrap');
 const todosNumberStats = allStatsWrap.querySelector('.todos-number-stats');
 const notesSymbolsNumber = allStatsWrap.querySelector('.notes-symbols-number');
 const savedUrlsNumber = allStatsWrap.querySelector('.saved-urls-number');
+// All stats
 document.querySelector('.show-all-dashboard-stats')
 .addEventListener('click', () => {
   renderTodos();
@@ -40,12 +47,15 @@ document.querySelector('.show-all-dashboard-stats')
   notesSymbolsNumber.textContent = `Notes SYMBOLs ${(localStorage.getItem('notes-text') || '').replace(/<[^<>]+>/g, '').length}`;
 
   renderAllUrls();
-  savedUrlsNumber.textContent = `Saved URls ${allUrlsContainer.children.length}`;
+  savedUrlsNumber.textContent = `Saved URLs ${allUrlsContainer.children.length}`;
 
   allStatsWrap.classList.toggle('show');
 })
 
-document.querySelectorAll('.min-wrap').forEach(b => { b.addEventListener('click', () => b.parentElement.classList.toggle('minimized')) })
+document.querySelectorAll('.min-wrap').forEach(b => {b.addEventListener('click', () => {
+  b.parentElement.classList.toggle('minimized');
+  b.parentElement.removeAttribute('style');
+})})
 
 /* Theme switcher */
 const todoSwitchTheme = document.querySelector('[data-theme-switcher]');
@@ -106,3 +116,25 @@ document.querySelector('.close-calc-wrap')
 
 document.querySelector('.close-save-urls-wrap')
 .addEventListener('click', () => saveUrlsWrap.classList.remove('show'))
+
+// Drag and drop window
+let isDrag = false,
+dragBlock = null,
+x, y;
+document.addEventListener('pointerup', () => {isDrag = false; dragBlock = null;})
+const allWindowsHeader = document.querySelectorAll('.drag-and-drop-block');
+
+allWindowsHeader.forEach(header => {
+  header.addEventListener('pointerdown', e => {
+  if(!e.target.parentElement.classList.contains('minimized')) return;
+  isDrag = true;
+  dragBlock = header.parentElement;
+  x = e.clientX - dragBlock.getBoundingClientRect().left;
+  y = e.clientY - dragBlock.getBoundingClientRect().top;
+  })
+})
+document.addEventListener('pointermove', e => {
+  if(!isDrag || !dragBlock) return;
+  dragBlock.style.left = `${e.clientX - x}px`;
+  dragBlock.style.top = `${e.clientY - y}px`;
+})

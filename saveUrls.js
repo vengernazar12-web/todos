@@ -73,8 +73,9 @@ document.querySelector('.search-url')
 })
 function renderFilteredUrls(text) {
   allUrlsContainer.textContent = '';
+  text = text.toLowerCase();
 
   allUrlsArr.forEach(name => {
-    if(name.includes(text)) createUrlElement(name, allUrlsObj[name])
+    if(name.toLowerCase().includes(text)) createUrlElement(name, allUrlsObj[name])
   })
 }

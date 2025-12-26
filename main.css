@@ -40,6 +40,7 @@ body {
   gap: 50px;
   flex-wrap: wrap;
   align-items: center;
+  min-height: 100vh;
 }
 
 .--opened-btn, [data-theme-switcher] {
@@ -56,10 +57,19 @@ body {
 
 .todo-wrap, .notes-wrap, .calc-wrap, .save-urls-wrap {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   display: none;
   background: var(--body-bg);
   overflow-y: auto;
+}
+.minimized {
+  width: 40vw;
+  height: 40vh;
+  border: 1px solid black;
+  border-radius: 3px;
 }
 
 .show-all-dashboard-stats {
@@ -73,10 +83,12 @@ body {
   background-color: transparent;
 }
 
-html .minimized {
-  width: 40vw;
-  height: 40vh;
-  border: 2px solid black;
+.drag-and-drop-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 35px;
 }
 
 /* All stats */
