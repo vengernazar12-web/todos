@@ -122,18 +122,16 @@ let isDrag = false,
 dragBlock = null,
 x, y;
 document.addEventListener('pointerup', () => {isDrag = false; dragBlock = null;})
-const allWindowsHeader = document.querySelectorAll('.drag-and-drop-block');
 
-allWindowsHeader.forEach(header => {
-  header.addEventListener('pointerdown', e => {
+document.addEventListener('pointerdown', e => {
   if(!e.target.parentElement.classList.contains('minimized')) return;
   isDrag = true;
-  dragBlock = header.parentElement;
+  dragBlock = e.target.parentElement;
   const blockObj = dragBlock.getBoundingClientRect();
   x = e.clientX - blockObj.left;
   y = e.clientY - blockObj.top;
-  })
 })
+
 document.addEventListener('pointermove', e => {
   if(!isDrag || !dragBlock) return;
   let left = e.clientX - x,
